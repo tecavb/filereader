@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            position: absolute;
+            left: 50%;
+            margin-left: -35vw;
+            top: 50%;
+            width: 70vw;
+            height: 6vh;
+            font-size: 24px;
+            border-radius: 6px;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" autofocus>
+</body>
+<script>
+    let inp = document.getElementsByTagName('input')[0];
+    inp.onchange = function (e) {
+        if (e.target.value.length > 3) {
+            localStorage.setItem('id', inp.value)
+            history.pushState(null, '', '/main.html')
+            history.go(0)
+        }else{
+            alert('请输入至少四个字符')
+        }
+    }
+</script>
+
+</html>
