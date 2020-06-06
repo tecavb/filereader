@@ -15,31 +15,15 @@
         }
 
         .back {
+            padding-left: 10px;
             height: 6vh;
             line-height: 6vh;
             border-bottom: 1px solid #333;
         }
 
-        .box {
-            overflow: hidden;
-            width: 25vw;
-            height: 25vw;
-            display: block;
-            border: 1px solid #333;
-            position: relative;
-            top: -7vw;
-            left: -2vw;
-        }
-
         input {
             font-size: 0;
             opacity: 0;
-        }
-
-        .en {
-            user-select: none;
-            display: inline-block;
-            margin: 3vw;
         }
 
         .pending {
@@ -49,6 +33,40 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+
+        @media screen and (max-width: 500px) {
+
+            .box {
+                overflow: hidden;
+                width: 25vw;
+                height: 25vw;
+                display: block;
+                border: 1px solid #333;
+            }
+
+            .en {
+                user-select: none;
+                display: inline-block;
+                margin: 3vw;
+            }
+        }
+
+        @media screen and (min-width: 501px) {
+            .box {
+                overflow: hidden;
+                width: 300px;
+                height: 300px;
+                display: block;
+                border: 1px solid #333;
+            }
+
+            .en {
+                user-select: none;
+                display: inline-block;
+                margin: 3vw;
+            }
+
         }
     </style>
 </head>

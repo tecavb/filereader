@@ -30,7 +30,7 @@
 </body>
 <script>
     let inp = document.getElementsByTagName('input')[0];
-    inp.onchange = function (e) {
+    inp.onblur = function (e) {
         if (e.target.value.length > 3) {
             localStorage.setItem('id', inp.value)
             history.pushState(null, '', '/main.html')
