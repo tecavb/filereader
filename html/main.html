@@ -111,23 +111,19 @@
         history.pushState(null, '', '/')
         history.go(0)
     }
-    axios.get('http://192.168.3.5:3000/id?id=' + id).then(data => {
+    axios.get(host + '/id?id=' + id).then(data => {
         localStorage.setItem('id', data.data)
         let n = document.getElementsByClassName('en');
         let img = document.getElementsByTagName('img');
         let p = document.getElementsByClassName('pending')[0];
-        id = localStorage.getItem('id')
-        for (let i = 0; i < n.length; i++) {
-            eval('var n' + i + ' = n[' + i + ']')
-            eval('var img' + i + ' = img[' + i + ']')
-        }
-        for (let i = 0; i < img.length; i++) {
-            eval(`let Img = new Image();
-        Img.src = '/images/n0${i}/${id}.png'
-        if(Img.width){
-           img${i}.src = '/images/n0${i}/${id}.png'
-        }`)
-        }
+        id = localStorage.getItem('id');
+        [...img].forEach((item, i) => {
+            let Img = new Image();
+            Img.src = `/images/n0${i}/${id}.png`
+            if (Img.width) {
+                item.src = `/images/n0${i}/${id}.png`
+            }
+        })
         function main(type, ee) {
             p.style.display = 'block';
             let f = ee.target.files[0];
@@ -150,9 +146,9 @@
                 })
             }
         }
-        for (let i = 0; i < n.length; i++) {
-            eval('n' + i + '.onchange = function (e) {main("n0' + i + '",e)}')
-        }
+        [...n].forEach((item, i) => {
+            item.onchange = function (e) { main("n0" + i, e) }
+        })
     })
 </script>
 
