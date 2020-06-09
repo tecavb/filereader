@@ -33,7 +33,7 @@
     inp.onblur = function (e) {
         if (e.target.value.length > 3) {
             localStorage.setItem('id', inp.value)
-            history.pushState(null, '', '/main.html')
+            history.pushState(null, '', '/main')
             history.go(0)
         }else{
             alert('请输入至少四个字符')
